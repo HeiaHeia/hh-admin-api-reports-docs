@@ -1,0 +1,711 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Admin API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction-to-hh-admin-api" class="toc-h1 toc-link" data-title="Introduction to HH Admin API">Introduction to HH Admin API</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#organisations" class="toc-h1 toc-link" data-title="Organisations">Organisations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listing-organisations" class="toc-h2 toc-link" data-title="Listing organisations">Listing organisations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#survey-amp-usage-data" class="toc-h1 toc-link" data-title="Survey &amp; usage data">Survey &amp; usage data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-organization-specific-data" class="toc-h2 toc-link" data-title="Getting organization specific data">Getting organization specific data</a>
+                  </li>
+                  <li>
+                    <a href="#usage-stats-for-an-individual-organization" class="toc-h2 toc-link" data-title="Usage stats for an individual organization">Usage stats for an individual organization</a>
+                  </li>
+                  <li>
+                    <a href="#test-your-energy-levels-survey-data-for-an-individual-organization" class="toc-h2 toc-link" data-title="“Test your energy levels” survey data for an individual organization">“Test your energy levels” survey data for an individual organization</a>
+                  </li>
+                  <li>
+                    <a href="#listing-survey-reports-for-an-individual-organization" class="toc-h2 toc-link" data-title="Listing survey reports for an individual organization">Listing survey reports for an individual organization</a>
+                  </li>
+                  <li>
+                    <a href="#getting-survey-data-for-an-individual-report" class="toc-h2 toc-link" data-title="Getting survey data for an individual report">Getting survey data for an individual report</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://heiaheia.com'>HeiaHeia</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction-to-hh-admin-api'>Introduction to HH Admin API</h1>
+<p>This is short API documentation for fetching HH reports data. Before taking the API in to use, make sure to contact our technical team (support@heiaheia.com).</p>
+
+<p>We have examples for all endpoints in shell, but you can easily use any programming language you want by making indentical requests.</p>
+
+<p>If you need the whole admin API documentation, you can find it in <a href="https://app.swaggerhub.com/apis/Hintsa/heia-heia_admin_api/1.0.1">SwaggerHub</a>.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, make the following request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{"grant_type": "magic_token", "email": "client@client.com", "magic_token": "{magic_token}", "client_id": "{client_id}", "client_secret": "{client_secret}"}'</span> <span class="s1">'https://api.heiaheia.com/oauth/token'</span> | json_pp
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only_admin_api"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521446718</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Most API calls require authentication and the first step is to get an access token. The access token created using the mechanism described here are valid for two weeks. The same call can be used to get a new access token and you can request new one before the previous one expires so one possible approach would be to implement a daily data synchronization where the daily sync starts by obtaining new access token, performs all sync operations for all organizations, and then discards the access token and gets a new one the next day.</p>
+
+<p>The returned access token can only be used to perform read (HTTP GET) operations, which should be sufficient for implementing first phase of the integration. Any operations that would modify system state will fail with HTTP status code 403.</p>
+
+<aside class="notice">
+You must replace <code>email, magic_token, client_id, client_secret</code> with the ones provided to you by the application team.
+</aside>
+<h1 id='organisations'>Organisations</h1><h2 id='listing-organisations'>Listing organisations</h2><pre class="highlight shell tab-shell"><code>curl -XGET <span class="s1">'https://api.heiaheia.com/admin/v1/documents/organisations?page=1&amp;per_page=500&amp;size_classes=50,10000&amp;access_token=123'</span> | json_pp
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"size_class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo company 1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"multi_business_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"multi_business_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="s2">"123123-1"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"123123-2"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"size_class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo company 2"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"multi_business_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="err">…</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Once you’ve obtained the access token the next step is to list all organizations that may have interesting data. The organization listing API is paged and maximum page size is 500, which is less than the current number of applicable organizations so the request needs to be repeated with an increasing page number until all data has been received. The size_classes parameter should be used to filter out small organizations, which can never have interesting data. To get the first page of relevant organizations make a call like this described here.</p>
+
+<p>At this point you can also see if an Organisation contains multiple business ids or not based on the attributes <code>multi_business_id</code> and <code>business_ids</code>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.heiaheia.com/admin/v1/documents/organisations</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>true</td>
+<td>How many items per page</td>
+</tr>
+<tr>
+<td>size_classes</td>
+<td></td>
+<td>Filter organisations based on size classes (20, 50, 10000)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You will only see organisations available for your user.
+</aside>
+<h1 id='survey-amp-usage-data'>Survey &amp; usage data</h1><h2 id='getting-organization-specific-data'>Getting organization specific data</h2>
+<p>After getting all the organization names and ids, next step is to get relevant data for each organization. There is currently no API that would allow mass access to multiple organizations’ data but making the necessary API calls for each organization one by one should complete in around 15 minutes with the current data set (without any concurrency) so the simplistic approach should be good enough for the foreseeable future, presuming synchronizing all data once a day is sufficient. Not doing operations concurrently is preferable from our point-of-view to avoid causing unnecessary load on our servers due to the background synchronization.</p>
+
+<p>There are 3 calls that should be done for each organization and an additional fourth for organizations that have completed an organization survey since the last synchronization.</p>
+
+<p>The first call is to get usage statistics for the organization, the second is to get “Test your energy levels” survey results, the third one is to get organization survey report metadata, and the fourth is getting actual report data for organizations that have completed a new organization survey.</p>
+
+<p>The second call to get the“Test your energy levels” survey results could/should be skipped for organizations that don’t have sufficient number of activated HH users (many organizations only use the organization survey part of the platform) and it should only be called on dates when reporting period has changed (e.g. if results are reported for one month period this call should only be made on the first day of each month for the previous month).</p>
+<h2 id='usage-stats-for-an-individual-organization'>Usage stats for an individual organization</h2><pre class="highlight shell tab-shell"><code>curl -XGET <span class="s1">'https://api.heiaheia.com/admin/v1/documents/organisations/123/stats?access_token=123123'</span> | json_pp
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_membership_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hh_core_total_membership_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hh_core_accepted_membership_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"app_use_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"app_monthly_use_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Usage stats for an individual organization can be fetched with a call like described here.</p>
+
+<p>The data returned by the usage stats API is current live values for each field. In order to display trends or historical values the caller must persist the date/time of the call along with the data so that it can compute the delta in the last month or whatever the reporting period is.</p>
+
+<aside class="notice">
+You can filter the stats by business id by providing it as a parameter. In order for this to work, the business id has to be mapped to users inside the Organisation.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.heiaheia.com/admin/v1/documents/organisations/&lt;ID&gt;/stats</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the organsation</td>
+</tr>
+<tr>
+<td>business_id</td>
+<td>Filter report for specific business-id in this organisation</td>
+</tr>
+</tbody></table>
+<h2 id='test-your-energy-levels-survey-data-for-an-individual-organization'>“Test your energy levels” survey data for an individual organization</h2><pre class="highlight shell tab-shell"><code>curl -XGET <span class="s1">'https://api.heiaheia.com/admin/v1/documents/organisations/123/energy_levels?access_token=123123&amp;start_date=2019-01-01&amp;end_date=2019-02-28'</span> | json_pp
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bahringer Inc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123-1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size_class"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"su_access"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">Questions</span><span class="w"> </span><span class="err">listed</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">Teams</span><span class="w"> </span><span class="err">listed</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"instances"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"minimum_answer_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Global</span><span class="w"> </span><span class="err">results</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Organisation</span><span class="w"> </span><span class="err">results</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"3790"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">//</span><span class="w"> </span><span class="err">Individual</span><span class="w"> </span><span class="err">team</span><span class="w"> </span><span class="err">results</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The “Test your energy levels” survey results can be fetched for an individual organization with a call like described here.</p>
+
+<p>The start_date and end_date parameters specify the (inclusive) date range from which to gather results. Even though it is possible to pass date ranges that are long in the past, it is recommended to only use this API to get results immediately after the desired date and store the results locally. The server computes the results dynamically based on current data so if users are removed from the organization, their teams change or any other similar changes take place the data for past dates will change, which is almost always undesired.</p>
+
+<p>There&#39;s no point in fetching these for organisations where <code>hh_core_accepted_membership_count</code> &lt; 5</p>
+
+<p>The full response data format is too long to show here, so please refer to the API documentation at https://app.swaggerhub.com/apis/Hintsa/heia-heia_admin_api/1.0.1 for exact format.</p>
+
+<aside class="notice">
+You can filter the stats by business id by providing it as a parameter. In order for this to work, the business id has to be mapped to users inside the Organisation.
+</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.heiaheia.com/admin/v1/documents/organisations/&lt;ID&gt;/energy_levels</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the organsation</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Start of the selected date range</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>End of the selected date range</td>
+</tr>
+<tr>
+<td>business_id</td>
+<td>Filter report for specific business-id in this organisation</td>
+</tr>
+</tbody></table>
+<h2 id='listing-survey-reports-for-an-individual-organization'>Listing survey reports for an individual organization</h2><pre class="highlight shell tab-shell"><code>curl -XGET <span class="s1">'https://api.heiaheia.com/admin/v1/documents/organisations/123/reports?access_token=123123&amp;viewed=true'</span> | json_pp
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">708</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data_instance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation_123_survey_key_tyovire_123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OrganisationSurveyReportDataInstance"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"viewed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sub_report"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_viewed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-14T16:22:20+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"generated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-14T16:22:20+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scheduled_survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">172</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07T11:08:37Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ends_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-14"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey title here"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">215</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Työvire"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"enabled_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">27</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"copy_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"enps"</span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data_instance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"190faf097013a5ef2fccf3941c02e292de606743_2fd79f8b47a2b9c7d63b73276606587bc58a0263a02b0a47fdcd333ae66c"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OrganisationSurveyReportDataInstance"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"viewed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sub_report"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sub_report_business_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_viewed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-14T16:22:20+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"generated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-14T16:22:20+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scheduled_survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">172</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07T11:08:37Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ends_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-14"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey title here"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">215</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Työvire"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"enabled_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">27</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"copy_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"enps"</span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The viewed=true parameter restricts results to reports that have been generated and viewed by the organization HR admin. The data for reports that have not been viewed is not accessible via the API so there’s no point in returning those. The most recent reports are returned first.</p>
+
+<p>If the organisation has multiple business ids, this list will contain also all &quot;sub reports&quot;. You can diffrentiate the sub reports from the main organisation report by the <code>sub_report</code> and <code>sub_report_business_id</code> fields.</p>
+
+<aside class="notice">
+From this endpoint you are interested in the `data_instance.id` for the next request.
+</aside>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.heiaheia.com/admin/v1/documents/organisations/&lt;ID&gt;/reports</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the organsation</td>
+</tr>
+<tr>
+<td>viewed</td>
+<td>Restricts results to reports that have been generated</td>
+</tr>
+</tbody></table>
+<h2 id='getting-survey-data-for-an-individual-report'>Getting survey data for an individual report</h2><pre class="highlight shell tab-shell"><code>curl -XGET <span class="s1">'https://api.heiaheia.com/reports/v1/documents/reports/organisation_123_survey_key_tyovire_123/full_data'</span> | json_pp
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey title"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sub_report"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_business_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123-1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_business_desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description about sub company"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">265</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo company 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123-0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size_class"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"su_access"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_membership_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">116</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hh_core_total_membership_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hh_core_accepted_membership_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"feature_tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"multi_business_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123123123"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Survey</span><span class="w"> </span><span class="err">info</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"explicit_team_ids"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"explicit_tag_ids"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Teams</span><span class="w"> </span><span class="err">listed</span><span class="w"> </span><span class="err">here</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Tags</span><span class="w"> </span><span class="err">listed</span><span class="w"> </span><span class="err">here</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Questions</span><span class="w"> </span><span class="err">listed</span><span class="w"> </span><span class="err">here</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"question_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Question</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">listed</span><span class="w"> </span><span class="err">here</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"instances"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"generated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-21T11:10:59+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-07T11:08:37Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ends_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-14"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"minimum_answer_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"point_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Global</span><span class="w"> </span><span class="err">results</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Organisaton</span><span class="w"> </span><span class="err">results</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"subgroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filtered_subgroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Team</span><span class="w"> </span><span class="err">results</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"filtered_teams"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Tag</span><span class="w"> </span><span class="err">results</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"open_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Open</span><span class="w"> </span><span class="err">questions</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"similarities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Similarietes</span><span class="w"> </span><span class="err">between</span><span class="w"> </span><span class="err">teams</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">tags</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"190faf097013a5ef2fccf3941c02e292de606743_2fd79f8b47a2b9c7d63b73276606587bc58a0263a02b0a47fdcd333ae66c"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The actual report data is accessible using an API call like described here.</p>
+
+<p>The full response data format is too long to show here, so please make the actual request to see all the data. Here we have listed the main contents of the report.</p>
+
+<p>The result might contain multiple instances if the survey has been done multiple times. The latest result will be the first item in the <code>instances</code> array. You are probably interested in downloading &amp; parsing it. The rest of the instances can used for calculating historical comparisons etc.</p>
+
+<p>On the top level there can be fields <code>sub_report</code> and <code>report_business_id</code> if the report is a sub report for specific business id. This is same information you can find in the previous endpoint before making this request.</p>
+
+<aside class="notice">
+Note that this call does not require authentication. Knowing the report data instance identifier (as returned by the earlier admin API call) is sufficient for accessing the report data. This call should only be made for reports that have not already been downloaded and stored on client side.
+</aside>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.heiaheia.com/admin/v1/documents/reports/&lt;ID&gt;/full_data</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the data instance</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- Your API Key is wrong / not allowed to perform such action</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
